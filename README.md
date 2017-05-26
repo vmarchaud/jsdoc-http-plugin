@@ -1,6 +1,6 @@
 # This is a fork
 
-This project is a fork from https://github.com/bvanderlaan/jsdoc-route-plugin
+This project is a fork of https://github.com/bvanderlaan/jsdoc-route-plugin
 Currently, bvanderlaan doesn't seems to be available to maintain the project so i'll continue here.
 
 # JsDoc HTTP Plugin
@@ -309,7 +309,7 @@ You can use the `@response` tag as many times as you have parameters in your res
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/bvanderlaan/jsdoc-route-plugin. This project is intended to be a safe, welcoming space for
+Bug reports and pull requests are welcome on GitHub at https://github.com/vmarchaud/jsdoc-http-plugin. This project is intended to be a safe, welcoming space for
 collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
