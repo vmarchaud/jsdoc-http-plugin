@@ -93,21 +93,6 @@ server.post({
 ```
 
 The `@path` tag will add a table showing the HTTP verb (i.e. POST, PUT, DEL, GET), and the route path (i.e. /v1/files) for the route you are documenting just under the friendly name of the route above the details section.
-It would look something similar to the following:
-
---------------------------------------
-
-#### Members
-  *(path)* File Upload
-
-##### Route:
-|Method |Path      |
-|:------|:---------|
-| POST  | /v1/file |
-
-Upload a file.
-
---------------------------------------
 
 Only one `@path` tag is expected per endpoint document.
 
@@ -129,23 +114,6 @@ server.post({
 ```
 
 It will result in a new sub-heading called **Authentication** with whatever text you provided to the tag beneath it.
-It would look something similar to the following:
-
---------------------------------------
-#### Members
-  *(path)* File Upload
-
-##### Route:
-|Method |Path      |
-|:------|:---------|
-| POST  | /v1/file |
-
-Upload a file.
-
-##### Authentication
-This route requires HTTP Basic Authentication. If authentication fails it will return a 401 error.
-
---------------------------------------
 
 Only one `@auth` tag is expected per endpoint document.
 
@@ -174,27 +142,6 @@ server.post({
 ```
 
 The above would add a table under the route description that lists all the header parameters.
-It would look something similar to the following:
-
---------------------------------------
-#### Members
-  *(route)* File Upload
-
-##### Route:
-|Method |Path      |
-|:------|:---------|
-| POST  | /v1/file |
-
-Upload a file.
-
-#### Header Parameters:
-|Name            |Type    | Description                                       |
-|:---------------|:-------|:--------------------------------------------------|
-| authorization  |        | is the identification information for the request |
-| user-id        | String | is the unique User Id to assign to the file       |
-
---------------------------------------
-
 You can use the `@header` tag as many times as you have parameters in your request header you whish to document.
 
 
@@ -231,26 +178,6 @@ server.post({
 ```
 
 The above would add a table under the route description that lists all the body parameters.
-It would look something similar to the following:
-
---------------------------------------
-#### Members
-  *(route)* File Upload
-
-##### Route:
-|Method |Path      |
-|:------|:---------|
-| POST  | /v1/file |
-
-Upload a file.
-
-##### Body Parameters:
-|Name     |Type     | Attributes | Default | Description                                                                  |
-|:--------|:--------|:-----------|:--------|:-----------------------------------------------------------------------------|
-| userId  | String  |            |         | is the unique identifier for the user we are uploading the file to.          |
-| sync    | Boolean | Optional   | false   | when true the route will be synchronous otherwise the route is asynchronous. |
-
---------------------------------------
 
 You can use the `@bodyparam` tag as many times as you have parameters in your request body you whish to document.
 
@@ -278,25 +205,6 @@ server.get({
 ```
 
 The above would add a table under the route description that lists all the route parameters.
-It would look something similar to the following:
-
---------------------------------------
-## Members
-  *(route)* Download File
-
-### Route:
-|Method |Path               |
-|:------|:------------------|
-| GET   | /v1/files/:fileId |
-
-Download a file.
-
-### Route Parameters:
-|Name      |Type    | Description                                        |
-|:---------|:-------|:---------------------------------------------------|
-| :fileId  | String | is the unique identifier for the file to download. |
-
---------------------------------------
 
 You can use the `@params` tag as many times as you have parameters in your route path.
 
@@ -331,27 +239,73 @@ server.get({
 ```
 
 The above would add a table under the route description that lists all the query parameters.
-It would look something similar to the following:
-
---------------------------------------
-## Members
-  *(route)* Download Files
-
-### Route:
-|Method |Path       |
-|:------|:----------|
-| GET   | /v1/files |
-
-Download files.
-
-### Query Parameters:
-|Name      |Type    | Attributes | Description                                       |
-|:---------|:-------|:-----------|:--------------------------------------------------|
-| fileType | String | Optional   | will limit the download to just these file types. |
-
---------------------------------------
 
 You can use the `@query` tag as many times as you have parameters in your request url you whish to document.
+
+## @response
+
+The `@response` allows you to document the response that your route will make
+
+With this tag you need to provide the name and a description. The name is the first word of the text following the tag.
+* `@response MyName And this part is the description`
+
+You can also optionally provide a type for the parameter.
+* `@response {String} MyName And this part is the description`
+
+You can also specify that the response is optional by placing the name within square brackets.
+* `@response {String} [MyName] And this part is the description`
+
+Lastly you can define a default value for the parameter.
+* `@response {String} [MyName=Phillip] And this part is the description`
+
+
+```
+/**
+ * Download files.
+ *
+ * @name Download Files
+ * @path {GET} /v1/files
+ * @response {Object} metadata
+ * @response {String} metadata.name
+ * @response {String} metadata.limk
+ */
+server.get({
+  url: '/v1/files',
+}, (req, res, next) => {...}
+```
+
+The above would add a table under the route description that lists that the route answer with a json document containing the `name` and `link` key.
+
+You can use the `@response` tag as many times as you have parameters in your response you whish to document.
+
+
+## @code
+
+The `@code` allows you to document the http response code that your route will make
+
+With this tag you need to provide the number like this
+* `@code {200} and then you document why this code is happening`
+
+```
+/**
+ * Download files.
+ *
+ * @name Download Files
+ * @path {GET} /v1/files
+ * @code {200} if the request is sucesfull
+ * @code {500} if the request fail because the database isn't accesible 
+ * @response {Object} metadata
+ * @response {String} metadata.name
+ * @response {String} metadata.limk
+ */
+server.get({
+  url: '/v1/files',
+}, (req, res, next) => {...}
+```
+
+The above would add a table under the route description that lists that the route answer with a json document containing the `name` and `link` key.
+
+You can use the `@response` tag as many times as you have parameters in your response you whish to document.
 
 ## Donations
 

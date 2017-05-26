@@ -11,6 +11,8 @@ const bodyParameterTag = require('./lib/bodyparam')
 const headerParameterTag = require('./lib/headerparam')
 const queryParameterTag = require('./lib/queryparam')
 const routeParameterTag = require('./lib/routeparam')
+const responseParameterTag = require('./lib/responseparam')
+const responseCodeTag = require('./lib/responsecode')
 
 exports.defineTags = function (dictionary) {
   dictionary.defineTag(authenticationTag.name, authenticationTag.options)
@@ -19,6 +21,8 @@ exports.defineTags = function (dictionary) {
   dictionary.defineTag(headerParameterTag.name, headerParameterTag.options)
   dictionary.defineTag(queryParameterTag.name, queryParameterTag.options)
   dictionary.defineTag(routeParameterTag.name, routeParameterTag.options)
+  dictionary.defineTag(responseParameterTag.name, responseParameterTag.options)
+  dictionary.defineTag(responseCodeTag.name, responseCodeTag.options)
 }
 
 exports.handlers = {
@@ -29,5 +33,7 @@ exports.handlers = {
     queryParameterTag.newDocletHandler(e)
     routeParameterTag.newDocletHandler(e)
     routeTag.newDocletHandler(e)
+    responseParameterTag.newDocletHandler(e)
+    responseCodeTag.newDocletHandler(e)
   }
 }

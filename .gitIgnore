@@ -1,2 +1,11 @@
 node_modules/
-out/
+*.log
+*.log
+*.pid
+test/child
+*.iml
+.idea/**
+*.heapsnapshot
+*.cpuprofile
+.cache-require-paths.json
+/out
