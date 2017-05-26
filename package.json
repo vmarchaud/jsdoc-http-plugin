@@ -1,0 +1,38 @@
+{
+  "name": "jsdoc-http-plugin",
+  "version": "0.1.0",
+  "description": "Plugin to add HTTP Route tags for documenting HTTP endpoints",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'boo on me I have no tests.'",
+    "clean": "rm -rf ./out/*;",
+    "example1": "rm -rf ./out/*; ./node_modules/.bin/jsdoc -c ./examples/jsdoc.conf --readme ./examples/README.md; true"
+  },
+  "keywords": [
+    "jsdoc",
+    "documentation",
+    "express",
+    "restful",
+    "rest",
+    "route",
+    "plugin"
+  ],
+  "engines": {
+    "node": ">=4.6.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vmarchaud/jsdoc-http-plugin.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "author": "Brad van der Laan",
+  "license": "MIT",
+  "dependencies": {
+    "jsdoc": "^3.4.3"
+  },
+  "peerDependencies": {
+    "jsdoc": "^3.4.3"
+  }
+}
