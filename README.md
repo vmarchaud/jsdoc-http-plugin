@@ -307,12 +307,6 @@ The above would add a table under the route description that lists that the rout
 
 You can use the `@response` tag as many times as you have parameters in your response you whish to document.
 
-## Donations
-
-You can help the original developer to come back and maintain the original work : [Gratipay](https://gratipay.com/~bvanderlaan/).
-
-[![Support via Gratipay](https://cdn.rawgit.com/gratipay/gratipay-badge/2.3.0/dist/gratipay.svg)](https://gratipay.com/~bvanderlaan/)
-
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/bvanderlaan/jsdoc-route-plugin. This project is intended to be a safe, welcoming space for
@@ -321,11 +315,3 @@ collaboration, and contributors are expected to adhere to the [Contributor Coven
 ## License
 
 The library is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
-
-[npm-image]: http://img.shields.io/npm/v/jsdoc-route-plugin.svg?style=flat
-[npm-url]: https://npmjs.org/package/jsdoc-route-plugin
-[david-image]: http://img.shields.io/david/bvanderlaan/jsdoc-route-plugin.svg?style=flat
-[david-url]: https://david-dm.org/bvanderlaan/jsdoc-route-plugin
-[david-dev-image]: http://img.shields.io/david/dev/bvanderlaan/jsdoc-route-plugin.svg?style=flat
-[david-dev-url]: https://david-dm.org/bvanderlaan/jsdoc-route-plugin#info=devDependencies
