@@ -1,0 +1,14 @@
+dist
+.sass-cache
+/node_modules
+*.pdf
+pm2-deploy.log
+npm-debug.log
+*[#]*[#]
+*[#]*
+*.DS_Store
+.vscode/
+volumes/
+*.tgz
+scripts/node_modules
+/out
