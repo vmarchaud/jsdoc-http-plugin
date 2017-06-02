@@ -1,6 +1,6 @@
 {
   "name": "jsdoc-http-plugin",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Plugin to add HTTP Route tags for documenting HTTP endpoints",
   "main": "index.js",
   "scripts": {
