@@ -60,6 +60,12 @@ Now run [JsDoc](http://usejsdoc.org/) with the `--config` flag.
 jsdoc --config jsdoc.conf
 ```
 
+## Caveats
+
+ - when used with markdown plugin, it should be put before `jsdoc-http-plugin`
+ 
+    > "plugins": ["plugins/markdown", "jsdoc-http-plugin"],
+ 
 ## Example
 
 If you want to see an example of this plugin in action run the `npm run example1` command.
