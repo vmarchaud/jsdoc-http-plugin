@@ -313,6 +313,33 @@ The above would add a table under the route description that lists that the rout
 
 You can use the `@response` tag as many times as you have parameters in your response you whish to document.
 
+## @service
+
+The `@service` allows you to document the host used to make a the request, in the time of microservice, you may have to hit a specific host to reach a specific microservice, you may say that they must be behind a load balancer, but in localhost thats not always the case.
+
+With this tag you need to provide the number like this
+* `@service API`
+
+```
+/**
+ * Download files.
+ *
+ * @name Download Files
+ * @service DOWNLOAD
+ * @path {GET} /v1/files
+ * @code {200} if the request is sucesfull
+ * @code {500} if the request fail because the database isn't accesible 
+ * @response {Object} metadata
+ * @response {String} metadata.name
+ * @response {String} metadata.limk
+ */
+server.get({
+  url: '/v1/files',
+}, (req, res, next) => {...}
+```
+
+The above would add a table under the route description that lists that the route answer with a json document containing the `name` and `link` key.
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/vmarchaud/jsdoc-http-plugin. This project is intended to be a safe, welcoming space for
