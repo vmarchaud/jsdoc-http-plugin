@@ -17,13 +17,13 @@ This plugin adds custom tags to JsDoc that work with the default document templa
 ## How to install
 
 First you need to install JsDoc
-```
+```console
 npm install jsdoc --save-dev
 ```
 
 Then you need to install the JsDoc Route Plugin
 
-```
+```console
 npm install jsdoc-http-plugin --save-dev
 ```
 
@@ -32,7 +32,7 @@ Next you need to tell [JsDoc](http://usejsdoc.org/) to enable the plugin.
 You can do this by adding a `jsdoc.conf` file and telling [JsDoc](http://usejsdoc.org/) to use it when you run it.
 
 **Example jsdoc.conf**
-```
+```js
 {
     "tags": {
         "allowUnknownTags": true,
@@ -56,7 +56,7 @@ You can do this by adding a `jsdoc.conf` file and telling [JsDoc](http://usejsdo
 ```
 
 Now run [JsDoc](http://usejsdoc.org/) with the `--config` flag.
-```
+```console
 jsdoc --config jsdoc.conf
 ```
 
@@ -86,7 +86,7 @@ This will add an entry under the **Members** section in the HTML document; howev
 To make documenting a route a bit nicer I suggest using the `@name` tag to define a common name for the route, such as File Upload, and the `@path` tag to define the verb and route path.
 Using the `@path` tag will also change the method attribute from *(inner)* to *(path)*.
 
-```
+```js
 /**
  * Upload a file.
  *
@@ -106,7 +106,7 @@ Only one `@path` tag is expected per endpoint document.
 
 The `@auth` tag allows you to state what authentication a route requires.
 
-```
+```js
 /**
  * Upload a file.
  *
@@ -133,7 +133,7 @@ With this tag you need to provide the name and a description. The name is the fi
 You can also optionally provide a type for the parameter.
 * `@header {String} MyName And this part is the description`
 
-```
+```js
 /**
  * Upload a file.
  *
@@ -148,7 +148,7 @@ server.post({
 ```
 
 The above would add a table under the route description that lists all the header parameters.
-You can use the `@header` tag as many times as you have parameters in your request header you whish to document.
+You can use the `@header` tag as many times as you have parameters in your request header you wish to document.
 
 
 ## @body
@@ -168,7 +168,7 @@ Lastly you can define a default value for the parameter. The idea is to document
 * `@body {String} [MyName=Phillip] And this part is the description`
 
 
-```
+```js
 /**
  * Upload a file.
  *
@@ -185,7 +185,7 @@ server.post({
 
 The above would add a table under the route description that lists all the body parameters.
 
-You can use the `@bodyparam` tag as many times as you have parameters in your request body you whish to document.
+You can use the `@bodyparam` tag as many times as you have parameters in your request body you wish to document.
 
 ## @params
 
@@ -197,7 +197,7 @@ With this tag you need to provide the name and a description. The name is the fi
 You can also optionally provide a type for the parameter.
 * `@params {String} MyName And this part is the description`
 
-```
+```js
 /**
  * Download a file.
  *
@@ -231,7 +231,7 @@ Lastly you can define a default value for the parameter. The idea is to document
 * `@query {String} [MyName=Phillip] And this part is the description`
 
 
-```
+```js
 /**
  * Download files.
  *
@@ -246,7 +246,7 @@ server.get({
 
 The above would add a table under the route description that lists all the query parameters.
 
-You can use the `@query` tag as many times as you have parameters in your request url you whish to document.
+You can use the `@query` tag as many times as you have parameters in your request url you wish to document.
 
 ## @response
 
@@ -265,7 +265,7 @@ Lastly you can define a default value for the parameter.
 * `@response {String} [MyName=Phillip] And this part is the description`
 
 
-```
+```js
 /**
  * Download files.
  *
@@ -273,7 +273,7 @@ Lastly you can define a default value for the parameter.
  * @path {GET} /v1/files
  * @response {Object} metadata
  * @response {String} metadata.name
- * @response {String} metadata.limk
+ * @response {String} metadata.link
  */
 server.get({
   url: '/v1/files',
@@ -282,7 +282,7 @@ server.get({
 
 The above would add a table under the route description that lists that the route answer with a json document containing the `name` and `link` key.
 
-You can use the `@response` tag as many times as you have parameters in your response you whish to document.
+You can use the `@response` tag as many times as you have parameters in your response you wish to document.
 
 
 ## @code
@@ -292,17 +292,17 @@ The `@code` allows you to document the http response code that your route will m
 With this tag you need to provide the number like this
 * `@code {200} and then you document why this code is happening`
 
-```
+```js
 /**
  * Download files.
  *
  * @name Download Files
  * @path {GET} /v1/files
- * @code {200} if the request is sucesfull
+ * @code {200} if the request is successful
  * @code {500} if the request fail because the database isn't accesible 
  * @response {Object} metadata
  * @response {String} metadata.name
- * @response {String} metadata.limk
+ * @response {String} metadata.link
  */
 server.get({
   url: '/v1/files',
@@ -311,7 +311,7 @@ server.get({
 
 The above would add a table under the route description that lists that the route answer with a json document containing the `name` and `link` key.
 
-You can use the `@response` tag as many times as you have parameters in your response you whish to document.
+You can use the `@response` tag as many times as you have parameters in your response you wish to document.
 
 ## @service
 
@@ -320,18 +320,18 @@ The `@service` allows you to document the host used to make a the request, in th
 With this tag you need to provide the number like this
 * `@service API`
 
-```
+```js
 /**
  * Download files.
  *
  * @name Download Files
  * @service DOWNLOAD
  * @path {GET} /v1/files
- * @code {200} if the request is sucesfull
+ * @code {200} if the request is successful
  * @code {500} if the request fail because the database isn't accesible 
  * @response {Object} metadata
  * @response {String} metadata.name
- * @response {String} metadata.limk
+ * @response {String} metadata.link
  */
 server.get({
   url: '/v1/files',
