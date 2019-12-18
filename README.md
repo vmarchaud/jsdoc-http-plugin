@@ -338,6 +338,44 @@ server.get({
 }, (req, res, next) => {...}
 ```
 
+## @chain
+
+The `@chain` allows you to document the sequence of handlers which will handle the request before current endpoint or middleware,  for e.g it may be the express.js middlewares. 
+
+With this tag you may provide @link or human-friendly name of chain element. It is important to keep order of @chain declarations same as real request handling order.
+* `@chain {@link module:<full-path-to-module-member>} || @chain <human-friendly-endpoint-name>`
+
+```js
+/**
+ * Handlers chain - example middleware
+ *
+ * @name SomeMiddleware
+ * @path {POST} /v1/chain
+ * @version v1
+ * @since v1
+ */
+
+app.get('/v1/chain', function (request, response, next) {
+  ...
+  next()
+})
+
+/**
+ * Handlers chain - endpoint after the middleware
+ *
+ * @name SomeEndpoint
+ * @path {POST} /v1/chain
+ * @version v1
+ * @since v1
+ * @code 200
+ * @chain {@module:MyRoutes.SomeMiddleware}
+ * @chain {@module:MyRoutes.SomeEndpoint} 
+ */
+app.get('/v1/chain', function (request, response) {
+  ...
+})
+```
+
 The above would add a table under the route description that lists that the route answer with a json document containing the `name` and `link` key.
 
 ## Contributing
