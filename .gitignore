@@ -12,3 +12,6 @@ volumes/
 *.tgz
 scripts/node_modules
 /out
+.idea
+.DS_Store
+package-lock.json

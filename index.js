@@ -14,6 +14,7 @@ const routeParameterTag = require('./lib/routeparam')
 const responseParameterTag = require('./lib/responseparam')
 const responseCodeTag = require('./lib/responsecode')
 const serviceTag = require('./lib/serviceparam')
+const chainTag = require('./lib/chain')
 
 exports.defineTags = function (dictionary) {
   dictionary.defineTag(serviceTag.name, serviceTag.options)
@@ -25,6 +26,7 @@ exports.defineTags = function (dictionary) {
   dictionary.defineTag(routeParameterTag.name, routeParameterTag.options)
   dictionary.defineTag(responseParameterTag.name, responseParameterTag.options)
   dictionary.defineTag(responseCodeTag.name, responseCodeTag.options)
+  dictionary.defineTag(chainTag.name, chainTag.options)
 }
 
 exports.handlers = {
@@ -38,5 +40,6 @@ exports.handlers = {
     routeTag.newDocletHandler(e)
     responseParameterTag.newDocletHandler(e)
     responseCodeTag.newDocletHandler(e)
+    chainTag.newDocletHandler(e)
   }
 }

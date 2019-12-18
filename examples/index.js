@@ -111,6 +111,35 @@ app.get('/v1/files', function (request, response) {
   request.send({ data: { msg: 'Your Files' } })
 })
 
+
+/**
+ * Handlers chain - example middleware
+ *
+ * @name Handlers Chain - Middleware
+ * @path {POST} /v1/chain
+ * @version v1
+ * @since v1
+ */
+
+app.get('/v1/chain', function (request, response, next) {
+  next()
+})
+
+/**
+ * Handlers chain - endpoint after the middleware
+ *
+ * @name Handlers Chain - Endpoint
+ * @path {POST} /v1/chain
+ * @version v1
+ * @since v1
+ * @code 200
+ * @chain Handlers Chain - Middleware
+ * @chain Handlers Chain - Endpoint
+ */
+app.get('/v1/chain', function (request, response) {
+  request.send(200)
+})
+
 app.listen(3000, function () {
   console.log('Example app is listening on port 3000, have fun!')
 })
