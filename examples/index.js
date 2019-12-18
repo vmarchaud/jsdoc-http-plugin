@@ -114,27 +114,32 @@ app.get('/v1/files', function (request, response) {
 
 /**
  * Handlers chain - example middleware
- *
- * @name Handlers Chain - Middleware
+ * @name SomeMiddleware
  * @path {POST} /v1/chain
  * @version v1
  * @since v1
  */
-
 app.get('/v1/chain', function (request, response, next) {
   next()
 })
 
 /**
+ *
+ */
+function all () {
+
+}
+
+/**
  * Handlers chain - endpoint after the middleware
  *
- * @name Handlers Chain - Endpoint
+ * @name SomeEndpoint
  * @path {POST} /v1/chain
  * @version v1
  * @since v1
  * @code 200
- * @chain Handlers Chain - Middleware
- * @chain Handlers Chain - Endpoint
+ * @chain {@link module:MyRoutes.SomeMiddleware}
+ * @chain This handler
  */
 app.get('/v1/chain', function (request, response) {
   request.send(200)

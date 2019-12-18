@@ -354,7 +354,6 @@ With this tag you may provide @link or human-friendly name of chain element. It 
  * @version v1
  * @since v1
  */
-
 app.get('/v1/chain', function (request, response, next) {
   ...
   next()
@@ -368,8 +367,8 @@ app.get('/v1/chain', function (request, response, next) {
  * @version v1
  * @since v1
  * @code 200
- * @chain {@module:MyRoutes.SomeMiddleware}
- * @chain {@module:MyRoutes.SomeEndpoint} 
+ * @chain {@link module:MyRoutes.SomeMiddleware}
+ * @chain This handler
  */
 app.get('/v1/chain', function (request, response) {
   ...
